@@ -24,6 +24,9 @@ userdebug_or_eng(`
   allow priv_app su_exec:file { execute_no_trans getattr open read execute };
   allow platform_app su_exec:file { execute_no_trans getattr open read execute };
 
+  # Allow system apps (like Settings) to use su
+  allow system_app su_exec:file { execute_no_trans getattr open read execute };
+
   # Add su to various domains
   net_domain(su)
   app_domain(su)
